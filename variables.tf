@@ -40,3 +40,8 @@ variable "enable_dns_hostnames" {
   type    = bool
   default = true
 }
+
+variable "prefix" {
+  type        = string
+  description = "Prefix for resources."
+}

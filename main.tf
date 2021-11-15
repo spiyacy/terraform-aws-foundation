@@ -10,10 +10,8 @@ terraform {
 
 locals {
   tags = merge(
-    var.default_tags,
-    {
-      owner = var.owner
-    }
+    var.global_tags,
+    var.local_tags
   )
 }
 
@@ -28,7 +26,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.11.0"
 
-  name = "${var.owner}-vpc"
+  name = "${var.prefix}-vpc"
   cidr = var.vpc_cidr
 
   azs                    = ["${var.region}a", "${var.region}b", "${var.region}c"]
