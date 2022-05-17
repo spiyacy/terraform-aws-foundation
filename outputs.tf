@@ -1,6 +1,18 @@
+output "vpc_output" {
+  value = module.vpc
+}
 output "vpc_id" {
   value = module.vpc.vpc_id
 }
+
+output "vpc_arn" {
+  value = module.vpc.vpc_arn
+}
+
+output "vpc_owner_id" {
+  value = module.vpc.vpc_owner_id
+}
+
 
 output "private_subnets" {
   value = module.vpc.private_subnets
@@ -13,3 +25,4 @@ output "public_subnets" {
 output "vpc_cidr_block" {
   value = module.vpc.vpc_cidr_block
 }
+
