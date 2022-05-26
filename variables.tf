@@ -45,8 +45,3 @@ variable "prefix" {
   type        = string
   description = "Prefix for resources."
 }
-
-variable "myIP" {
-  type        = list(string)
-  description = "Home Network IP address (recommended as a x.x.x.x/32 format to be used for connections)."
-}

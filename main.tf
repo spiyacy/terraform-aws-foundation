@@ -44,14 +44,6 @@ resource "aws_security_group" "sg_ingress" {
   description = "${var.prefix} Foundational Ingress Security Group"
   vpc_id      = module.vpc.vpc_id
 
-  # owner cidr blocks - this will allow ssh from home network
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = var.myIP
-  }
-
   # vpc cidr block
   ingress {
     from_port   = 0
