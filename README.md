@@ -13,7 +13,6 @@ For example:
 default_tags = {
   ttl           = 24
   tfe-workspace = "acme/terraform-aws-vpc"
-  repo          = "ykhemani/terraform-aws-vpc"
 }
 ```
 
