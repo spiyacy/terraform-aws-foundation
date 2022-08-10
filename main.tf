@@ -11,8 +11,7 @@ terraform {
 locals {
   tags = merge(
     var.global_tags,
-    var.local_tags,
-    demo = "Planned"
+    var.local_tags
   )
 }
 
