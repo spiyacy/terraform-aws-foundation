@@ -46,13 +46,6 @@ resource "aws_security_group" "sg_ingress" {
 
   # vpc cidr block
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = [module.vpc.vpc_cidr_block]
-  }
-
-  ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
