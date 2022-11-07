@@ -38,3 +38,6 @@ output "egress_security_group_id" {
   value = aws_security_group.sg_egress.id
 }
 
+output "admin_access_ports" {
+  value = "${var.allowed_inbound_ports} to --->> ${var.allowed_inbound_ips}"
+}

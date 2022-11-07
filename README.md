@@ -11,13 +11,10 @@ Set the following Terraform variables in your workspace:
 ```
 default_tags = { environment = "demo" owner = "me@hashi.io" build_with_terraform = "true" }
 ```
-
 * `owner`
-
 ```
 owner = "me"
 ```
-
 * `allowed_inbound_ports`
 ```
 ["22","9001"]
