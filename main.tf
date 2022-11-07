@@ -50,14 +50,22 @@ resource "aws_security_group" "sg_ingress" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = [module.vpc.vpc_cidr_block]
+    description = "Open traffic inside the network itself"
   }
+}
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+resource "aws_security_group_rule" "admin_access" {
+  count = length(var.allowed_inbound_ports)
+  
+  type              = "ingress"
+  from_port         = var.allowed_inbound_ports[count.index]
+  to_port           = var.allowed_inbound_ports[count.index]
+  protocol          = "tcp"
+  cidr_blocks       = var.allowed_inbound_ips
+  description = "Admin access to port ${var.allowed_inbound_ports[count.index]}"
+  security_group_id = resource.aws_security_group.sg_ingress.id
+
+  depends_on = [resource.aws_security_group.sg_ingress]
 }
 
 resource "aws_security_group" "sg_egress" {

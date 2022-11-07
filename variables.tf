@@ -1,7 +1,7 @@
 variable "region" {
   type        = string
   description = "AWS Region in which to provision this VPC."
-  default     = "us-east-2"
+  default     = "us-east-1"
 }
 
 variable "vpc_cidr" {
@@ -9,6 +9,23 @@ variable "vpc_cidr" {
   description = "VPC CIDR"
   default     = "10.0.0.0/16"
 }
+
+#List of IPs allowed for inbound connectivity
+variable "allowed_inbound_ips" {
+  type        = list(string)
+  description = "List of private subnets for this VPC."
+  default = null
+  #Example: default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+}
+
+#List of IPs allowed for inbound connectivity
+variable "allowed_inbound_ports" {
+  type        = list(string)
+  description = "List of private subnets for this VPC."
+  default = null
+  #Example: default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+}
+
 variable "private_subnets" {
   type        = list(string)
   description = "List of private subnets for this VPC."
