@@ -38,17 +38,17 @@ variable "public_subnets" {
 
 variable "enable_nat_gateway" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "single_nat_gateway" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "one_nat_gateway_per_az" {
   type    = bool
-  default = true
+  default = false
 }
 
 variable "enable_dns_hostnames" {

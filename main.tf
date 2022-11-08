@@ -40,18 +40,9 @@ module "vpc" {
 }
 
 resource "aws_security_group" "sg_ingress" {
-  name        = "${var.prefix}_foundation_ingress_sg"
+  name        = "ingress_sg_${var.prefix}"
   description = "${var.prefix} Foundational Ingress Security Group"
   vpc_id      = module.vpc.vpc_id
-
-  # vpc cidr block
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = [module.vpc.vpc_cidr_block]
-    description = "Open traffic inside the network itself"
-  }
 }
 
 resource "aws_security_group_rule" "admin_access" {
@@ -70,7 +61,7 @@ resource "aws_security_group_rule" "admin_access" {
 
 resource "aws_security_group" "sg_egress" {
 
-  name        = "${var.prefix}_foundation_egress_sg"
+  name        = "egress_sg_${var.prefix}"
   description = "${var.prefix} Foundational Egress Security Group"
   vpc_id      = module.vpc.vpc_id
 
