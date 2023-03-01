@@ -16,7 +16,7 @@ locals {
 }
 
 provider "aws" {
-  region = var.region
+  region = var.aws_region
   default_tags {
     tags = local.tags
   }
@@ -30,7 +30,7 @@ module "vpc" {
   name = "${var.prefix}-vpc"
   cidr = var.vpc_cidr
 
-  azs                    = ["${var.region}a", "${var.region}b", "${var.region}c"]
+  azs                    = ["${var.aws_region}a", "${var.aws_region}b", "${var.aws_region}c"]
   private_subnets        = var.private_subnets
   public_subnets         = var.public_subnets
   enable_nat_gateway     = var.enable_nat_gateway
