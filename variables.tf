@@ -1,4 +1,4 @@
-variable "region" {
+variable "aws_region" {
   type        = string
   description = "AWS Region in which to provision this VPC."
   default     = "us-east-1"
