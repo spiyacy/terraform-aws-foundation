@@ -20,9 +20,12 @@ variable "allowed_inbound_ips" {
 #List of IPs allowed for inbound connectivity
 variable "allowed_inbound_ports" {
   type        = list(string)
-  description = "List of private subnets for this VPC. \n New Line \n
-  Example: ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]"
-  #Example: default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  description = <<EOT 
+  
+  List of private subnets for this VPC.
+  \n New Line 
+  \n Example: ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+EOT
 }
 
 variable "private_subnets" {
