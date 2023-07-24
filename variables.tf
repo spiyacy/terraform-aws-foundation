@@ -20,8 +20,12 @@ variable "allowed_inbound_ips" {
 #List of IPs allowed for inbound connectivity
 variable "allowed_inbound_ports" {
   type        = list(string)
+<<<<<<< HEAD
   description = "List of private subnets for this VPC.\nNew Line\n"
   #Example: ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+=======
+  description = "List of private subnets for this VPC.\nNew Line\nExample: ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]"
+>>>>>>> main
 }
 
 variable "private_subnets" {
